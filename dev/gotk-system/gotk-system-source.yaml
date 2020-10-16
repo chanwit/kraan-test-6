@@ -1,0 +1,13 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: gotk-system
+  namespace: gotk-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/chanwit/kraan-test-6
+  ignore: |-
+    # exclude Kptfile
+    /**/Kptfile
