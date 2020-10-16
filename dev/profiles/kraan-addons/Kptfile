@@ -5,9 +5,9 @@ metadata:
 upstream:
   type: git
   git:
-    commit: fe3359bdb20bfd8160addcbe973c0be8f20a03b2
+    commit: fc6ea7faf4ee9db0689ba759a898520505170c41
     repo: https://github.com/chanwit/kraan-addons
     directory: /
-    ref: v0
+    ref: v1
 packageMetadata:
-  shortDescription: sample description
+  shortDescription: Kraan Addons Example

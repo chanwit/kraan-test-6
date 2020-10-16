@@ -17,6 +17,23 @@ spec:
 apiVersion: kraan.io/v1alpha1
 kind: AddonsLayer
 metadata:
+  name: mgmt
+  namespace: gotk-system
+spec:
+  interval: 1m
+  version: 0.1.01
+  source:
+    name: addons-config
+    namespace: gotk-system
+    path: ./testdata/addons/mgmt
+  prereqs:
+    k8sVersion: "v1.18"
+    dependsOn:
+    - bootstrap@0.1.01
+---
+apiVersion: kraan.io/v1alpha1
+kind: AddonsLayer
+metadata:
   name: apps
   namespace: gotk-system
 spec:
@@ -29,3 +46,4 @@ spec:
     k8sVersion: "v1.18"
     dependsOn:
     - bootstrap@0.1.01
+    - mgmt@0.1.01
