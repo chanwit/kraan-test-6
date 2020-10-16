@@ -211,7 +211,7 @@ metadata:
   labels:
     control-plane: controller
   name: kraan-controller
-  namespace: kraan
+  namespace: gotk-system
 spec:
   replicas: 1
   selector:
@@ -270,4 +270,10 @@ spec:
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true
+        volumeMounts:
+        - mountPath: /home/controller/data
+          name: data-volume
       terminationGracePeriodSeconds: 10
+      volumes:
+      - name: data-volume
+        emptyDir: {}
