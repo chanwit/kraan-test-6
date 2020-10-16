@@ -1,0 +1,31 @@
+apiVersion: kraan.io/v1alpha1
+kind: AddonsLayer
+metadata:
+  name: bootstrap
+  namespace: gotk-system
+spec:
+  version: 0.1.01
+  hold: false
+  interval: 1m
+  source:
+    name: addons-config
+    namespace: gotk-system
+    path: ./testdata/addons/bootstrap
+  prereqs:
+    k8sVersion: "v1.18"
+---
+apiVersion: kraan.io/v1alpha1
+kind: AddonsLayer
+metadata:
+  name: apps
+  namespace: gotk-system
+spec:
+  version: 0.1.01
+  source:
+    name: addons-config
+    namespace: gotk-system
+    path: ./testdata/addons/apps
+  prereqs:
+    k8sVersion: "v1.18"
+    dependsOn:
+    - bootstrap@0.1.01
